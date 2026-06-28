@@ -257,6 +257,14 @@
 			status = "disabled";
 		};
 
+		lpuart3: serial@42570000 {
+			compatible = "nxp,imx-lpuart", "nxp,lpuart";
+			reg = <0x42570000 DT_SIZE_K(64)>;
+			interrupts = <68 3>;
+			clocks = <&ccm IMX_CCM_LPUART3_CLK 0x6c 24>;
+			status = "disabled";
+		};
+
 		lcdif: display-controller@4ae30000 {
 			compatible = "nxp,imx-lcdifv3";
 			media-axi-clk-rate = <400000000>;
