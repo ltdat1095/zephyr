@@ -13,4 +13,5 @@ config SOC_MIMXRT798S_HIFI1
 	select HAS_MCUX
 
 config MCUX_CORE_SUFFIX
+	bool
 	default "_hifi1" if SOC_MIMXRT798S_HIFI1

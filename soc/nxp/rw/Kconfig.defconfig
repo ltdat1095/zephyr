@@ -15,9 +15,11 @@ config SYS_CLOCK_HW_CYCLES_PER_SEC
 	default 260000000 if CORTEX_M_SYSTICK
 
 config NXP_MONOLITHIC_NBU
+	bool
 	default y if (BT || IEEE802154 || NXP_IEEE802154_MAC)
 
-configdefault NXP_COMPRESSED_WIFI_NB_FW
+config NXP_COMPRESSED_WIFI_NB_FW
+	bool
 	default y
 
 if BT
@@ -57,9 +59,11 @@ config NXP_MONOLITHIC_WIFI
 	default y if WIFI
 
 config NXP_FW_LOADER
+	bool
 	default y if (BT || WIFI || IEEE802154)
 
 config NXP_RF_IMU
+	bool
 	default y if (BT || WIFI || IEEE802154)
 
 if WIFI

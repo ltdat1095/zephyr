@@ -5,6 +5,7 @@
 rsource "../../../common/Kconfig.nbu"
 
 config MCUX_CORE_SUFFIX
+	bool
 	default "_cm33_core0" if SOC_MCXW727C
 
 config SOC_MCXW716C

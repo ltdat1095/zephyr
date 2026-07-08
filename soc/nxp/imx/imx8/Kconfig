@@ -13,4 +13,5 @@ config SOC_MIMX8QM6_ADSP
 	select CPU_HAS_DCACHE
 
 config MCUX_CORE_SUFFIX
+	bool
 	default "_dsp" if SOC_MIMX8QM6_ADSP

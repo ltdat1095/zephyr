@@ -35,5 +35,6 @@ config SOC_MIMXRT798S_CM33_CPU1
 	select HAS_MCUX
 
 config MCUX_CORE_SUFFIX
+	bool
 	default "_cm33_core0" if SOC_MIMXRT798S_CM33_CPU0
 	default "_cm33_core1" if SOC_MIMXRT798S_CM33_CPU1

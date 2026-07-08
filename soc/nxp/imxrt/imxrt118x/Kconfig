@@ -62,6 +62,7 @@ config CONTAINER_USER_IMAGE_OFFSET
 	  value, this will make ROM could get the user image start address.
 
 config MCUX_CORE_SUFFIX
+	bool
 	default "_cm7" if CPU_CORTEX_M7
 	default "_cm33" if CPU_CORTEX_M33
 

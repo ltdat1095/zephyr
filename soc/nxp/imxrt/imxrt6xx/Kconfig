@@ -39,6 +39,7 @@ config SOC_MIMXRT685S_HIFI4
 if SOC_SERIES_IMXRT6XX
 
 config MCUX_CORE_SUFFIX
+	bool
 	default "_cm33" if SOC_MIMXRT685S_CM33
 	default "_dsp" if SOC_MIMXRT685S_HIFI4
 

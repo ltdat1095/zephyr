@@ -23,6 +23,7 @@ config SOC_LPC54114_M0
 	select CLOCK_CONTROL
 
 config MCUX_CORE_SUFFIX
+	bool
 	default "_cm4" if SOC_LPC54114_M4
 	default "_cm0plus" if SOC_LPC54114_M0
 

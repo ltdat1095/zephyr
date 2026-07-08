@@ -72,6 +72,7 @@ config SYS_CLOCK_HW_CYCLES_PER_SEC
 	default $(dt_node_int_prop_int,/cpus/cpu@0,clock-frequency)
 
 config MCUX_CORE_SUFFIX
+	bool
 	default "_dsp"
 
 # Must match XCHAL_DCACHE_LINESIZE from core-isa.h

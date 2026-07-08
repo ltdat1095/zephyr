@@ -4,6 +4,7 @@
 if SOC_FAMILY_MCXL
 
 config MCUX_CORE_SUFFIX
+	bool
 	default "_cm33" if SOC_MCXL255_CPU0 || SOC_MCXL254_CPU0 || \
 		SOC_MCXL253_CPU0
 	default "_cm0plus" if SOC_MCXL255_CPU1 || SOC_MCXL254_CPU1 || \

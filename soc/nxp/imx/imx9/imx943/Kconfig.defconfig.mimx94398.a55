@@ -30,6 +30,7 @@ config ARM64_BOOT_DISABLE_DCACHE
 	default y
 
 config MCUX_CORE_SUFFIX
+	bool
 	default "_ca55" if SOC_MIMX94398_A55
 
 # Reserve 8192 LPI interrupt ID starts from 8192 when ITS is enabled

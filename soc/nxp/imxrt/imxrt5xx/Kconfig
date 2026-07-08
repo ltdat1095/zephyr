@@ -71,6 +71,7 @@ config MIPI_DPHY_CLK_SRC_FRO
 endchoice
 
 config MCUX_CORE_SUFFIX
+	bool
 	default "_cm33" if SOC_MIMXRT595S_CM33
 	default "_dsp" if SOC_MIMXRT595S_F1
 

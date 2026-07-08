@@ -18,6 +18,7 @@ config SOC_MIMXRT798S_HIFI4
 	select HAS_MCUX
 
 config MCUX_CORE_SUFFIX
+	bool
 	default "_hifi4"
 
 config RT798_HIFI4_STACK_SIZE

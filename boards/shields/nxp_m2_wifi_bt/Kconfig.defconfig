@@ -127,7 +127,8 @@ endif # WIFI
 configdefault IMX_USDHC_DAT3_DETECT_RETRY
 	default 10
 
-configdefault NXP_COMPRESSED_WIFI_NB_FW
+config NXP_COMPRESSED_WIFI_NB_FW
+	bool
 	default y
 
 endif # SHIELD_NXP_M2_2LL_WIFI_BT
