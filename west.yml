@@ -214,13 +214,14 @@ manifest:
         - hal
     - name: hal_nxp
       # MobTurret override: pull from the user's fork so the SDK
-      # patches land. Two commits on
+      # patches land. Three commits on
       # ltdat1095/hal_nxp:mobturret/lpuart-1mbaud-baud-override:
       #   c7f1b8449  SDK 1 Mbaud baud override
       #   a980f2a7f  restore top-level Kconfig + CMakeLists + module.yml
+      #   c49af1e94  add SDK include paths for i.MX93 M33
       # PR target: zephyrproject-rtos/hal_nxp:master.
       url: https://github.com/ltdat1095/hal_nxp
-      revision: a980f2a7f7ad59b3aa37fc7bd778483e84977167
+      revision: c49af1e94111e24d433ca294c469d9ce8bd121a4
       path: modules/hal/nxp
       groups:
         - hal
