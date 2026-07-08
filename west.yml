@@ -214,10 +214,13 @@ manifest:
         - hal
     - name: hal_nxp
       # MobTurret override: pull from the user's fork so the SDK
-      # baud-override patch (c7f1b8449) is applied. PR target:
-      # zephyrproject-rtos/hal_nxp:master.
+      # patches land. Two commits on
+      # ltdat1095/hal_nxp:mobturret/lpuart-1mbaud-baud-override:
+      #   c7f1b8449  SDK 1 Mbaud baud override
+      #   a980f2a7f  restore top-level Kconfig + CMakeLists + module.yml
+      # PR target: zephyrproject-rtos/hal_nxp:master.
       url: https://github.com/ltdat1095/hal_nxp
-      revision: c7f1b8449e8a73f42c5835f068246e0051aa838e
+      revision: a980f2a7f7ad59b3aa37fc7bd778483e84977167
       path: modules/hal/nxp
       groups:
         - hal
