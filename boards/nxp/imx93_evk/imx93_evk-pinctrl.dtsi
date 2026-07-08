@@ -27,6 +27,17 @@
 		};
 	};
 
+	/* MobTurret: 1 Mbaud servo bus on LPUART3, GPIO_14 (TX) / GPIO_15 (RX). */
+	uart3_default: uart3_default {
+		group0 {
+			pinmux = <&iomuxc1_gpio_io14_lpuart_tx_lpuart3_tx>,
+				 <&iomuxc1_gpio_io15_lpuart_rx_lpuart3_rx>;
+			bias-pull-up;
+			slew-rate = "slightly_fast";
+			drive-strength = "x5";
+		};
+	};
+
 	i2c1_default: i2c1_default {
 		group0 {
 			pinmux = <&iomuxc1_i2c1_scl_lpi2c_scl_lpi2c1_scl>,

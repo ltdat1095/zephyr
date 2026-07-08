@@ -106,6 +106,18 @@ static int mcux_ccm_on(const struct device *dev,
 		return 0;
 #endif
 #endif
+#ifdef CONFIG_UART_MCUX_LPUART
+	case IMX_CCM_LPUART1_CLK:
+	case IMX_CCM_LPUART2_CLK:
+	case IMX_CCM_LPUART3_CLK:
+	case IMX_CCM_LPUART4_CLK:
+	case IMX_CCM_LPUART5_CLK:
+	case IMX_CCM_LPUART6_CLK:
+	case IMX_CCM_LPUART7_CLK:
+	case IMX_CCM_LPUART8_CLK:
+		CLOCK_EnableClock((clock_ip_name_t)((uint32_t)kCLOCK_Lpuart1 + instance));
+		return 0;
+#endif
 	default:
 		(void)instance;
 		return 0;
@@ -168,6 +180,12 @@ static int mcux_ccm_get_subsys_rate(const struct device *dev,
 #else
 	case IMX_CCM_LPUART1_CLK:
 	case IMX_CCM_LPUART2_CLK:
+	case IMX_CCM_LPUART3_CLK:
+	case IMX_CCM_LPUART4_CLK:
+	case IMX_CCM_LPUART5_CLK:
+	case IMX_CCM_LPUART6_CLK:
+	case IMX_CCM_LPUART7_CLK:
+	case IMX_CCM_LPUART8_CLK:
 		clock_root = kCLOCK_Root_Lpuart1 + instance;
 		break;
 #endif
@@ -497,6 +515,35 @@ static int CCM_SET_FUNC_ATTR mcux_ccm_set_subsys_rate(const struct device *dev,
 		 * which is SOC specific.
 		 */
 		return flexspi_clock_set_freq(clock_name, clock_rate);
+#endif
+
+#if defined(CONFIG_SOC_MIMX9352) && defined(CONFIG_UART_MCUX_LPUART)
+	case IMX_CCM_LPUART1_CLK:
+	case IMX_CCM_LPUART2_CLK:
+	case IMX_CCM_LPUART3_CLK:
+	case IMX_CCM_LPUART4_CLK:
+	case IMX_CCM_LPUART5_CLK:
+	case IMX_CCM_LPUART6_CLK:
+	case IMX_CCM_LPUART7_CLK:
+	case IMX_CCM_LPUART8_CLK: {
+		/* MobTurret: bring LPUART root up to 24 MHz (mux=0, div=1).
+		 * The SDK's baud search loop is patched to handle this clock
+		 * rate for 1 Mbaud (see fork's fsl_lpuart.c lines 435, 850).
+		 * For other baud rates, callers should pass the desired root
+		 * frequency in `rate`; this implementation pins to 24 MHz on
+		 * MIMX9352 where the OSC is the only meaningful source.
+		 */
+		clock_root_config_t lpuartClkCfg = {
+			.clockOff = false,
+			.mux = 0,
+			.div = 1,
+		};
+		uint32_t clock_root = kCLOCK_Root_Lpuart1 +
+				      (clock_name & IMX_CCM_INSTANCE_MASK);
+		(void)clock_rate; /* rate ignored — fixed 24 MHz on MIMX9352 */
+		CLOCK_SetRootClock(clock_root, &lpuartClkCfg);
+		return 0;
+	}
 #endif
 
 #if defined(CONFIG_VIDEO_MCUX_MIPI_CSI2RX)
