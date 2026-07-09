@@ -214,7 +214,7 @@ manifest:
         - hal
     - name: hal_nxp
       # MobTurret override: pull from the user's fork so the SDK
-      # patches land. Seven commits on
+      # patches land. Eight commits on
       # ltdat1095/hal_nxp:mobturret/lpuart-1mbaud-baud-override:
       #   c7f1b8449  SDK 1 Mbaud baud override
       #   a980f2a7f  restore top-level Kconfig + CMakeLists + module.yml
@@ -223,9 +223,10 @@ manifest:
       #   fbe34ee0e  add periph/ for PERI_*.h headers
       #   25204d979  add mcux-sdk-ng/drivers/common/ for fsl_common.h
       #   662a614ad  glob all SDK peripheral subdirs (fsl_*.h)
+      #   4a9c65e02  add SDK source files (fsl_clock.c + fsl_lpuart.c)
       # PR target: zephyrproject-rtos/hal_nxp:master.
       url: https://github.com/ltdat1095/hal_nxp
-      revision: 662a614ad4692424479129e22af73fbb098e4fb8
+      revision: 4a9c65e0236d579757247dfd20c37852f19bdbd2
       path: modules/hal/nxp
       groups:
         - hal
